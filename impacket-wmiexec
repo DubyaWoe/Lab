@@ -74,4 +74,38 @@ Access Request Information:
 Access Check Results:
 	-
 
+11/13/2024 09:26:53 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=108420
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-20
+	Account Name:		DC01$
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E4
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x64DB28
+
+Process Information:
+	New Process ID:		0xbd8
+	New Process Name:	C:\Windows\System32\cmd.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-12288
+	Creator Process ID:	0x1d90
+	Creator Process Name:	C:\Windows\System32\wbem\WmiPrvSE.exe
+	Process Command Line:	cmd.exe /Q /c net user 1> \\127.0.0.1\ADMIN$\__1731551173.4300814 2>&1
+
 https://github.com/fortra/impacket/blob/master/examples/wmiexec.py#L48
