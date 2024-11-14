@@ -1,0 +1,77 @@
+impacket-wmiexec a-jsmith:asdfasdfasdf1!@172.16.0.1
+
+11/13/2024 08:48:16 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=106889
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x53D2F4
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		42056
+	
+Share Information:
+	Share Name:		\\*\ADMIN$
+	Share Path:		\??\C:\Windows
+	Relative Target Name:	__1731548894.1469197
+
+Access Request Information:
+	Access Mask:		0x10080
+	Accesses:		DELETE
+				ReadAttributes
+				
+Access Check Results:
+	-
+
+
+11/13/2024 08:48:15 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=106880
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x53D668
+
+Network Information:	
+	Object Type:		File
+	Source Address:		127.0.0.1
+	Source Port:		63505
+	
+Share Information:
+	Share Name:		\\*\ADMIN$
+	Share Path:		\??\C:\Windows
+	Relative Target Name:	__1731548894.1469197
+
+Access Request Information:
+	Access Mask:		0x2
+	Accesses:		WriteData (or AddFile)
+				
+Access Check Results:
+	-
+
+https://github.com/fortra/impacket/blob/master/examples/wmiexec.py#L48
