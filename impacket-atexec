@@ -1,4 +1,4 @@
-impacket-atexec a-jsmith:Password1@172.16.0.1 whoami
+impacket-atexec a-jsmith:asdfasdfasdf1@172.16.0.1 whoami
 
 creates the following logs
 random task name = [a-zA-Z] 8 characters
