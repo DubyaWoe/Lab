@@ -1,0 +1,218 @@
+impacket-atexec a-jsmith:Password1@172.16.0.1 whoami
+
+creates the following logs
+random task name = [a-zA-Z] 8 characters
+random file sahre name = [a-zA-Z].tmp (in the ADMIN$\Temp\ file share)
+first creates the scheduled task with a random task name, then runs and directs output to the same name in the file share, then deletes the scheduled task. Finally, reads the output of the command run from the file share and the deletes the file.
+
+11/13/2024 09:11:38 PM
+LogName=Security
+EventCode=4698
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=107948
+Keywords=Audit Success
+TaskCategory=Other Object Access Events
+OpCode=Info
+Message=A scheduled task was created.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x601349
+
+Task Information:
+	Task Name: 		\MWKvMmFq
+	Task Content: 		<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <Triggers>
+    <CalendarTrigger>
+      <StartBoundary>2015-07-15T20:35:13.2757294</StartBoundary>
+      <Enabled>true</Enabled>
+      <ScheduleByDay>
+        <DaysInterval>1</DaysInterval>
+      </ScheduleByDay>
+    </CalendarTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="LocalSystem">
+      <UserId>S-1-5-18</UserId>
+      <RunLevel>HighestAvailable</RunLevel>
+      <LogonType>InteractiveToken</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>P3D</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="LocalSystem">
+    <Exec>
+      <Command>cmd.exe</Command>
+      <Arguments>/C whoami &gt; %windir%\Temp\MWKvMmFq.tmp 2&gt;&amp;1</Arguments>
+    </Exec>
+  </Actions>
+  <RegistrationInfo>
+    <URI>\MWKvMmFq</URI>
+  </RegistrationInfo>
+</Task>
+
+Other Information:
+	ProcessCreationTime: 		0
+	ClientProcessId: 			0
+	ParentProcessId: 			0
+	FQDN: 		0
+	Accesses:		ReadData (or ListDirectory)
+
+
+11/13/2024 09:11:38 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=107949
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-18
+	Account Name:		DC01$
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E7
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		-
+	Account Domain:		-
+	Logon ID:		0x0
+
+Process Information:
+	New Process ID:		0x33c
+	New Process Name:	C:\Windows\System32\cmd.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-16384
+	Creator Process ID:	0x6a8
+	Creator Process Name:	C:\Windows\System32\svchost.exe
+	Process Command Line:	cmd.exe /C whoami > C:\Windows\Temp\MWKvMmFq.tmp 2>&1
+
+11/13/2024 09:11:39 PM
+LogName=Security
+EventCode=4699
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=107951
+Keywords=Audit Success
+TaskCategory=Other Object Access Events
+OpCode=Info
+Message=A scheduled task was deleted.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x601349
+
+Task Information:
+	Task Name: 		\MWKvMmFq
+	Task Content: 		
+
+Other Information:
+	ProcessCreationTime: 		0
+	ClientProcessId: 			0
+	ParentProcessId: 			0
+	FQDN: 		0
+
+11/13/2024 09:11:39 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=107953
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x601334
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		39876
+	
+Share Information:
+	Share Name:		\\*\ADMIN$
+	Share Path:		\??\C:\Windows
+	Relative Target Name:	Temp\MWKvMmFq.tmp
+
+Access Request Information:
+	Access Mask:		0x1
+	Accesses:		ReadData (or ListDirectory)
+				
+Access Check Results:
+	-
+
+11/13/2024 09:11:42 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=107961
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x601334
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		39876
+	
+Share Information:
+	Share Name:		\\*\ADMIN$
+	Share Path:		\??\C:\Windows
+	Relative Target Name:	Temp\MWKvMmFq.tmp
+
+Access Request Information:
+	Access Mask:		0x10080
+	Accesses:		DELETE
+				ReadAttributes
+				
+Access Check Results:
+	-
