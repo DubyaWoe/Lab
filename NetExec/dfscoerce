@@ -1,0 +1,120 @@
+nxc smb 172.16.0.1 -u testuser -p 'Password1' -M dfscoerce
+
+
+  11/18/2024 08:24:40 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=237213
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-18
+	Account Name:		DC01$
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E7
+
+Network Information:	
+	Object Type:		File
+	Source Address:		127.0.0.1
+	Source Port:		57941
+	
+Share Information:
+	Share Name:		\\*\IPC$
+	Share Path:		
+	Relative Target Name:	wkssvc
+
+Access Request Information:
+	Access Mask:		0x12019F
+	Accesses:		READ_CONTROL
+				SYNCHRONIZE
+				ReadData (or ListDirectory)
+				WriteData (or AddFile)
+				AppendData (or AddSubdirectory or CreatePipeInstance)
+				ReadEA
+				WriteEA
+				ReadAttributes
+				WriteAttributes
+				
+Access Check Results:
+	-
+
+11/18/2024 08:24:40 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=237207
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1110
+	Account Name:		testuser
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x332B50
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		57104
+	
+Share Information:
+	Share Name:		\\*\IPC$
+	Share Path:		
+	Relative Target Name:	netdfs
+
+Access Request Information:
+	Access Mask:		0x3
+	Accesses:		ReadData (or ListDirectory)
+				WriteData (or AddFile)
+				
+Access Check Results:
+	-
+
+11/18/2024 08:24:40 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=237201
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1110
+	Account Name:		testuser
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x332B20
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		57094
+	
+Share Information:
+	Share Name:		\\*\IPC$
+	Share Path:		
+	Relative Target Name:	svcctl
+
+Access Request Information:
+	Access Mask:		0x3
+	Accesses:		ReadData (or ListDirectory)
+				WriteData (or AddFile)
+				
+Access Check Results:
+	-
