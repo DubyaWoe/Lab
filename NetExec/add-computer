@@ -1,5 +1,8 @@
 nxc smb 172.16.0.1 -u testuser -p 'Password1' -M add-computer -o NAME="BADPC2" PASSWORD="Password1"
 
+https://github.com/fortra/impacket/blob/master/impacket/dcerpc/v5/samr.py#L2964C5-L2964C10
+
+
 11/18/2024 07:47:28 PM
 LogName=Security
 EventCode=5145
