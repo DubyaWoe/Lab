@@ -1,0 +1,128 @@
+nxc smb 172.16.0.1 -u testuser -p 'Password1' -M add-computer -o NAME="BADPC2" PASSWORD="Password1"
+
+11/18/2024 07:47:28 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=225576
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1110
+	Account Name:		testuser
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x28AF7A
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		39418
+	
+Share Information:
+	Share Name:		\\*\IPC$
+	Share Path:		
+	Relative Target Name:	svcctl
+
+Access Request Information:
+	Access Mask:		0x3
+	Accesses:		ReadData (or ListDirectory)
+				WriteData (or AddFile)
+				
+Access Check Results:
+	-
+
+	
+11/18/2024 07:47:28 PM
+LogName=Security
+EventCode=5145
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=225582
+Keywords=Audit Success
+TaskCategory=Detailed File Share
+OpCode=Info
+Message=A network share object was checked to see whether client can be granted desired access.
+	
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1110
+	Account Name:		testuser
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x28AFE2
+
+Network Information:	
+	Object Type:		File
+	Source Address:		172.16.0.101
+	Source Port:		39434
+	
+Share Information:
+	Share Name:		\\*\IPC$
+	Share Path:		
+	Relative Target Name:	19fe7af0438650ee
+
+Access Request Information:
+	Access Mask:		0x3
+	Accesses:		ReadData (or ListDirectory)
+				WriteData (or AddFile)
+				
+Access Check Results:
+	-
+
+11/18/2024 07:47:28 PM
+LogName=Security
+EventCode=4741
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=225583
+Keywords=Audit Success
+TaskCategory=Computer Account Management
+OpCode=Info
+Message=A computer account was created.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1110
+	Account Name:		testuser
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x28AFE2
+
+New Computer Account:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1134
+	Account Name:		BADPC2$
+	Account Domain:		MYDOMAIN
+
+Attributes:
+	SAM Account Name:	BADPC2$
+	Display Name:		<value not set>
+	User Principal Name:	-
+	Home Directory:		<value not set>
+	Home Drive:		<value not set>
+	Script Path:		<value not set>
+	Profile Path:		<value not set>
+	User Workstations:	<value not set>
+	Password Last Set:	<never>
+	Account Expires:		<never>
+	Primary Group ID:	515
+	AllowedToDelegateTo:	-
+	Old UAC Value:		0x0
+	New UAC Value:		0x84
+	User Account Control:	
+		'Password Not Required' - Enabled
+		'Workstation Trust Account' - Enabled
+	User Parameters:	<value changed, but not displayed>
+	SID History:		-
+	Logon Hours:		<value not set>
+	DNS Host Name:		-
+	Service Principal Names:	-
+
+Additional Information:
+	Privileges		SeMachineAccountPrivilege
+
