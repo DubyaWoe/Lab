@@ -1,0 +1,219 @@
+Log Analysis
+Notes: These are notes for analysis for powermad New-MachineAccount vs normal computer account creatin in the gui. The following logs are from the Splunk search:
+  "index=* sourcetype=*win* sourcetype="WinEventLog:*" sourcetype="WinEventLog:Security" EventCode IN (4741,4742)"
+Obviously, only having a 4741 event with no 4742 event at the same time, may be suspicious.
+
+
+
+
+
+Windows Logs:
+NORMAL GUI TEST:
+04/12/2025 02:58:07 PM
+LogName=Security
+EventCode=4742
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=454498
+Keywords=Audit Success
+TaskCategory=Computer Account Management
+OpCode=Info
+Message=A computer account was changed.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0xACC01
+
+Computer Account That Was Changed:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1138
+	Account Name:		TESTGOODMACHINE$
+	Account Domain:		MYDOMAIN
+
+Changed Attributes:
+	SAM Account Name:	-
+	Display Name:		-
+	User Principal Name:	-
+	Home Directory:		-
+	Home Drive:		-
+	Script Path:		-
+	Profile Path:		-
+	User Workstations:	-
+	Password Last Set:	-
+	Account Expires:		-
+	Primary Group ID:	-
+	AllowedToDelegateTo:	-
+	Old UAC Value:		0x85
+	New UAC Value:		0x84
+	User Account Control:	
+		Account Enabled
+	User Parameters:	-
+	SID History:		-
+	Logon Hours:		-
+	DNS Host Name:		-
+	Service Principal Names:	-
+
+Additional Information:
+	Privileges:		-
+
+
+04/12/2025 02:58:07 PM
+LogName=Security
+EventCode=4742
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=454495
+Keywords=Audit Success
+TaskCategory=Computer Account Management
+OpCode=Info
+Message=A computer account was changed.
+
+Subject:
+	Security ID:		S-1-5-7
+	Account Name:		ANONYMOUS LOGON
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3E6
+
+Computer Account That Was Changed:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1138
+	Account Name:		TESTGOODMACHINE$
+	Account Domain:		MYDOMAIN
+
+Changed Attributes:
+	SAM Account Name:	-
+	Display Name:		-
+	User Principal Name:	-
+	Home Directory:		-
+	Home Drive:		-
+	Script Path:		-
+	Profile Path:		-
+	User Workstations:	-
+	Password Last Set:	4/12/2025 2:58:07 PM
+	Account Expires:		-
+	Primary Group ID:	-
+	AllowedToDelegateTo:	-
+	Old UAC Value:		-
+	New UAC Value:		-
+	User Account Control:	-
+	User Parameters:	-
+	SID History:		-
+	Logon Hours:		-
+	DNS Host Name:		-
+	Service Principal Names:	-
+
+Additional Information:
+	Privileges:		-
+
+
+04/12/2025 02:58:07 PM
+LogName=Security
+EventCode=4741
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=454489
+Keywords=Audit Success
+TaskCategory=Computer Account Management
+OpCode=Info
+Message=A computer account was created.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0xACC01
+
+New Computer Account:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1138
+	Account Name:		TESTGOODMACHINE$
+	Account Domain:		MYDOMAIN
+
+Attributes:
+	SAM Account Name:	TESTGOODMACHINE$
+	Display Name:		-
+	User Principal Name:	-
+	Home Directory:		-
+	Home Drive:		-
+	Script Path:		-
+	Profile Path:		-
+	User Workstations:	-
+	Password Last Set:	<never>
+	Account Expires:		<never>
+	Primary Group ID:	515
+	AllowedToDelegateTo:	-
+	Old UAC Value:		0x0
+	New UAC Value:		0x85
+	User Account Control:	
+		Account Disabled
+		'Password Not Required' - Enabled
+		'Workstation Trust Account' - Enabled
+	User Parameters:	-
+	SID History:		-
+	Logon Hours:		<value not set>
+	DNS Host Name:		-
+	Service Principal Names:	-
+
+Additional Information:
+	Privileges		-
+
+
+POWERMAD TEST:
+04/12/2025 02:52:44 PM
+LogName=Security
+EventCode=4741
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=449816
+Keywords=Audit Success
+TaskCategory=Computer Account Management
+OpCode=Info
+Message=A computer account was created.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x4E1EEC
+
+New Computer Account:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1137
+	Account Name:		NewBadMachine1$
+	Account Domain:		MYDOMAIN
+
+Attributes:
+	SAM Account Name:	NewBadMachine1$
+	Display Name:		-
+	User Principal Name:	-
+	Home Directory:		-
+	Home Drive:		-
+	Script Path:		-
+	Profile Path:		-
+	User Workstations:	-
+	Password Last Set:	4/12/2025 2:52:44 PM
+	Account Expires:		<never>
+	Primary Group ID:	515
+	AllowedToDelegateTo:	-
+	Old UAC Value:		0x0
+	New UAC Value:		0x80
+	User Account Control:	
+		'Workstation Trust Account' - Enabled
+	User Parameters:	-
+	SID History:		-
+	Logon Hours:		<value not set>
+	DNS Host Name:		NewBadMachine1.mydomain.com
+	Service Principal Names:	
+		HOST/NewBadMachine1.mydomain.com
+		RestrictedKrbHost/NewBadMachine1.mydomain.com
+		HOST/NewBadMachine1
+		RestrictedKrbHost/NewBadMachine1
+
+Additional Information:
+	Privileges		-
