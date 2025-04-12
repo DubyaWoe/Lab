@@ -1,0 +1,175 @@
+Script:https://github.com/Kevin-Robertson/Powermad/tree/master
+Command:New-MachineAccount -MachineAccount "NewBadMachine1" -Verbose
+Windows logs:
+04/12/2025 02:52:44 PM
+LogName=Security
+EventCode=4724
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=449818
+Keywords=Audit Success
+TaskCategory=User Account Management
+OpCode=Info
+Message=An attempt was made to reset an account's password.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x4E1EEC
+
+Target Account:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1137
+	Account Name:		NewBadMachine1$
+	Account Domain:		MYDOMAIN
+
+04/12/2025 02:52:44 PM
+LogName=Security
+EventCode=4722
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=449817
+Keywords=Audit Success
+TaskCategory=User Account Management
+OpCode=Info
+Message=A user account was enabled.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x4E1EEC
+
+Target Account:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1137
+	Account Name:		NewBadMachine1$
+	Account Domain:		MYDOMAIN
+
+04/12/2025 02:52:44 PM
+LogName=Security
+EventCode=4741
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=449816
+Keywords=Audit Success
+TaskCategory=Computer Account Management
+OpCode=Info
+Message=A computer account was created.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x4E1EEC
+
+New Computer Account:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1137
+	Account Name:		NewBadMachine1$
+	Account Domain:		MYDOMAIN
+
+Attributes:
+	SAM Account Name:	NewBadMachine1$
+	Display Name:		-
+	User Principal Name:	-
+	Home Directory:		-
+	Home Drive:		-
+	Script Path:		-
+	Profile Path:		-
+	User Workstations:	-
+	Password Last Set:	4/12/2025 2:52:44 PM
+	Account Expires:		<never>
+	Primary Group ID:	515
+	AllowedToDelegateTo:	-
+	Old UAC Value:		0x0
+	New UAC Value:		0x80
+	User Account Control:	
+		'Workstation Trust Account' - Enabled
+	User Parameters:	-
+	SID History:		-
+	Logon Hours:		<value not set>
+	DNS Host Name:		NewBadMachine1.mydomain.com
+	Service Principal Names:	
+		HOST/NewBadMachine1.mydomain.com
+		RestrictedKrbHost/NewBadMachine1.mydomain.com
+		HOST/NewBadMachine1
+		RestrictedKrbHost/NewBadMachine1
+
+Additional Information:
+	Privileges		-
+
+04/12/2025 02:52:44 PM
+LogName=Security
+EventCode=4624
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=449814
+Keywords=Audit Success
+TaskCategory=Logon
+OpCode=Info
+Message=An account was successfully logged on.
+
+Subject:
+	Security ID:		S-1-0-0
+	Account Name:		-
+	Account Domain:		-
+	Logon ID:		0x0
+
+Logon Information:
+	Logon Type:		3
+	Restricted Admin Mode:	-
+	Virtual Account:		No
+	Elevated Token:		Yes
+
+Impersonation Level:		Impersonation
+
+New Logon:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN.COM
+	Logon ID:		0x4E1EEC
+	Linked Logon ID:		0x0
+	Network Account Name:	-
+	Network Account Domain:	-
+	Logon GUID:		{2e77d795-39a1-d016-c3bb-275f7909e672}
+
+Process Information:
+	Process ID:		0x0
+	Process Name:		-
+
+Network Information:
+	Workstation Name:	-
+	Source Network Address:	172.16.0.103
+	Source Port:		50171
+
+Detailed Authentication Information:
+	Logon Process:		Kerberos
+	Authentication Package:	Kerberos
+	Transited Services:	-
+	Package Name (NTLM only):	-
+	Key Length:		0
+
+This event is generated when a logon session is created. It is generated on the computer that was accessed.
+
+The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe.
+
+The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
+
+The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
+
+The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+
+The impersonation level field indicates the extent to which a process in the logon session can impersonate.
+
+The authentication information fields provide detailed information about this specific logon request.
+	- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.
+	- Transited services indicate which intermediate services have participated in this logon request.
+	- Package name indicates which sub-protocol was used among the NTLM protocols.
+	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.","2025-04-12T14:52:44.000-0400",DC01,main,70,"WinEventLog:Security","WinEventLog:Security","SPLUNK-STATION"
