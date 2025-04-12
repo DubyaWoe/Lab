@@ -11,6 +11,55 @@ Windows Logs:
 NORMAL GUI TEST:
 04/12/2025 02:58:07 PM
 LogName=Security
+EventCode=4722
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=454499
+Keywords=Audit Success
+TaskCategory=User Account Management
+OpCode=Info
+Message=A user account was enabled.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0xACC01
+
+Target Account:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1138
+	Account Name:		TESTGOODMACHINE$
+	Account Domain:		MYDOMAIN
+
+
+04/12/2025 02:58:07 PM
+LogName=Security
+EventCode=4724
+EventType=0
+ComputerName=DC01.mydomain.com
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=454496
+Keywords=Audit Success
+TaskCategory=User Account Management
+OpCode=Info
+Message=An attempt was made to reset an account's password.
+
+Subject:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1103
+	Account Name:		a-jsmith
+	Account Domain:		MYDOMAIN
+	Logon ID:		0x55CEBE
+
+Target Account:
+	Security ID:		S-1-5-21-3972285633-2492191808-684716012-1138
+	Account Name:		TESTGOODMACHINE$
+	Account Domain:		MYDOMAIN
+
+04/12/2025 02:58:07 PM
+LogName=Security
 EventCode=4742
 EventType=0
 ComputerName=DC01.mydomain.com
